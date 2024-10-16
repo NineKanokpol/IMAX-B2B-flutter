@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:imaxb2bflutter/appManager/aseets_path.dart';
 import 'package:imaxb2bflutter/pages/home/main_show_item_page.dart';
+import 'package:imaxb2bflutter/pages/viewitem/detail_item_page.dart';
+import 'package:imaxb2bflutter/pages/viewitem/list_item_page.dart';
 
+import '../baskets/baskets_page.dart';
 import '../shop/shop_item_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -115,11 +118,20 @@ class _HomePageState extends State<HomePage> {
           index = _selectPage;
           switch (index) {
             case 0:
-              return CupertinoTabView(builder: (context) => MainShowItemPage());
+              return CupertinoTabView(
+                  builder: (context) => MainShowItemPage(
+                        callBack: () {
+                          setState(() {
+                            _selectPage = 1;
+                          });
+                        },
+                      ));
             case 1:
-              return ShopItemPage();
+              return ListItemPage();
+            case 2:
+              return BasketsPage();
             default:
-              return CupertinoTabView(builder: (context) => MainShowItemPage());
+              return CupertinoTabView(builder: (context) => Container());
           }
         },
       ),

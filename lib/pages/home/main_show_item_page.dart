@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:imaxb2bflutter/appManager/color_manager.dart';
 import 'package:imaxb2bflutter/appManager/picture_network.dart';
 
+import '../../navigation.dart';
+
 class MainShowItemPage extends StatefulWidget {
-  const MainShowItemPage({super.key});
+  final Function() callBack;
+
+  const MainShowItemPage({super.key, required this.callBack});
 
   @override
   State<MainShowItemPage> createState() => _MainShowItemPageState();
@@ -173,7 +177,12 @@ class _MainShowItemPageState extends State<MainShowItemPage> {
             itemCount: listBanner.length,
             carouselController: _controllerCarousel,
             itemBuilder: (BuildContext context, int index, int realIndex) {
-              return PictureNetWork.showImageFull(listBanner[index]["image"]);
+              return GestureDetector(
+                  onTap: () {
+                    Navigation.shared.toImagePreviewCell(context, index,listBanner);
+                  },
+                  child:
+                      PictureNetWork.showImageFull(listBanner[index]["image"]));
             },
             options: CarouselOptions(
                 autoPlay: true,
@@ -253,16 +262,22 @@ class _MainShowItemPageState extends State<MainShowItemPage> {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 120,
-                    margin: EdgeInsets.only(right: 24),
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange, width: 1),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: PictureNetWork.showImageFull(
-                        listBrandItem[index]["image"]),
+                  return GestureDetector(
+                    onTap: () {
+                      widget.callBack();
+                      Navigation.shared.toListItemPage(context);
+                    },
+                    child: Container(
+                      width: 120,
+                      margin: EdgeInsets.only(right: 24),
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.orange, width: 1),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: PictureNetWork.showImageFull(
+                          listBrandItem[index]["image"]),
+                    ),
                   );
                 }),
           )
@@ -350,12 +365,12 @@ class _MainShowItemPageState extends State<MainShowItemPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'วิดีโอ(แนะนำสินค้า)',
+            'วิดีโอ (แนะนำสินค้า)',
             style: TextStyle(fontSize: 16),
           ),
           Container(
             height: 100,
-            margin: EdgeInsets.only(top: 8),
+            margin: EdgeInsets.only(top: 8, bottom: 16),
             child: ListView.builder(
                 itemCount: listBrandItem.length,
                 scrollDirection: Axis.horizontal,
