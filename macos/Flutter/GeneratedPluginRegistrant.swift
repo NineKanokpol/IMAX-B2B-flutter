@@ -9,7 +9,7 @@ import device_info_plus
 import file_selector_macos
 import irondash_engine_context
 import path_provider_foundation
-import sqflite
+import sqflite_darwin
 import super_native_extensions
 import url_launcher_macos
 

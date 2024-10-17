@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imaxb2bflutter/pages/home/home_page.dart';
+import 'package:imaxb2bflutter/pages/profile/edit_address_page.dart';
 import 'package:imaxb2bflutter/pages/viewitem/detail_item_page.dart';
 import 'package:imaxb2bflutter/pages/viewitem/list_item_page.dart';
 import 'package:imaxb2bflutter/widget/image_view.dart';
@@ -27,5 +28,12 @@ class Navigation {
         context,
         MaterialPageRoute(
             builder: (context) => ImagePreviewCell(index: index, listImage: list,)));
+  }
+
+  void toEditAddressPaage(context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EditAddressPage()));
   }
 }
