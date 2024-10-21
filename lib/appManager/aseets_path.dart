@@ -5,4 +5,5 @@ class AssetsPath {
   static String iconPackage = 'assets/icons/icon_package.png';
   static String iconTruck = 'assets/icons/icon_truck.png';
   static String iconReceived = 'assets/icons/icon_package_received.png';
+  static String iconClip = 'assets/icons/icon_clip.png';
 }

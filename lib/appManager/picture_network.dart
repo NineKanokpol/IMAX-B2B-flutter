@@ -58,9 +58,9 @@ extension PictureNetWork on Widget {
       child: CachedNetworkImage(
         fadeOutDuration: Duration(milliseconds: 500),
         fadeInDuration: Duration(milliseconds: 500),
-        filterQuality: FilterQuality.high,
-        // memCacheHeight: ImageManager.setCacheImage(),
-        // memCacheWidth: ImageManager.setCacheImage(),
+        filterQuality: FilterQuality.medium,
+        memCacheHeight: 500,
+        memCacheWidth: 500,
         imageUrl: filePath,
         fit: BoxFit.cover,
         progressIndicatorBuilder: (context, url, downloadProgress) =>

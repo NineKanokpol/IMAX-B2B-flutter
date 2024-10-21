@@ -7,7 +7,7 @@ import 'package:imaxb2bflutter/pages/viewitem/detail_item_page.dart';
 import 'package:imaxb2bflutter/pages/viewitem/list_item_page.dart';
 
 import '../baskets/baskets_page.dart';
-import '../profile/profile_page.dart';
+import '../profile/menu_profile_page.dart';
 import '../shop/shop_item_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
             case 2:
               return BasketsPage();
             default:
-              return ProfilePage();
+              return MenuProfilePage();
           }
         },
       ),

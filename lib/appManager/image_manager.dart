@@ -138,6 +138,28 @@ class ImageManager {
       return [];
     }
   }
+
+  static showDialogPermissionDenied(context, String title, String content) async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text(title),
+            content: Text(content),
+            actions: <CupertinoDialogAction>[
+              CupertinoDialogAction(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Cancel'),
+              ),
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                onPressed: () => openAppSettings(),
+                child: const Text('Settings'),
+              ),
+            ],
+          );
+        });
+  }
 }
 
 showDialogPermission(

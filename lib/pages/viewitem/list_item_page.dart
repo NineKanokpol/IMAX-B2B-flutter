@@ -219,37 +219,38 @@ class _ListItemPageState extends State<ListItemPage>
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('SKU : AOSK0068'),
-                    Text('สว่านไร้สายแปรงถ่าน 20v'),
-                    Row(
-                      children: [
-                        Expanded(child: Text('in stock')),
-                        Container(
-                          width: 120,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(child: Text('ราคาปลีก')),
-                                  Text('1,190.00'),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(child: Text('ราคาส่ง')),
-                                  Text('790.00'),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                  ],
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('SKU : AOSK0068'),
+                      Text('สว่านไร้สายแปรงถ่าน 20v'),
+                      Row(
+                        children: [
+                          Expanded(child: Text('in stock')),
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('ราคาปลีก'),
+                                    Text('1,190.00'),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text('ราคาส่ง'),
+                                    Text('790.00'),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),

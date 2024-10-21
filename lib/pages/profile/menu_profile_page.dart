@@ -4,14 +4,14 @@ import 'package:imaxb2bflutter/appManager/color_manager.dart';
 
 import '../../navigation.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class MenuProfilePage extends StatefulWidget {
+  const MenuProfilePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<MenuProfilePage> createState() => _MenuProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _MenuProfilePageState extends State<MenuProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
-                                  Text('สำนักงานใหญ่ [0000]'),
+                                  Expanded(child: Text('สำนักงานใหญ่ [0000]')),
                                 ],
                               ),
                               Row(
@@ -80,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
-                                  Expanded(child: Text('0109999999999')),
+                                  Expanded(child: Text('01099999999999999999')),
                                 ],
                               ),
                               Row(
@@ -339,7 +339,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 elevation: 0,
                                 backgroundColor: Colors.orange,
                                 padding: EdgeInsets.all(8)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigation.shared.toRefundItemPage(context);
+                            },
                             child: Text('แจ้งเคลมสินค้า'),
                           ),
                         ),
@@ -353,8 +355,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                 elevation: 0,
                                 backgroundColor: Colors.red,
                                 padding: EdgeInsets.all(8)),
-                            onPressed: () {},
-                            child: Text('แจ่งปัญหา'),
+                            onPressed: () {
+                              Navigation.shared.toContactPage(context,'problem');
+                            },
+                            child: Text('แจ้งปัญหา'),
                           ),
                         ),
                       ],
@@ -371,7 +375,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           elevation: 0,
                           backgroundColor: ColorManager.colorBtnSupport,
                           padding: EdgeInsets.all(8)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigation.shared.toContactPage(context,'contact');
+                      },
                       child: Text(
                         'ติดต่อ IMAX Support',
                         style: TextStyle(color: Colors.white),

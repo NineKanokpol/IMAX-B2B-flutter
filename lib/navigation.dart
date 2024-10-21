@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imaxb2bflutter/pages/home/home_page.dart';
+import 'package:imaxb2bflutter/pages/profile/contact_page.dart';
 import 'package:imaxb2bflutter/pages/profile/edit_address_page.dart';
+import 'package:imaxb2bflutter/pages/profile/refund_item_page.dart';
 import 'package:imaxb2bflutter/pages/viewitem/detail_item_page.dart';
 import 'package:imaxb2bflutter/pages/viewitem/list_item_page.dart';
 import 'package:imaxb2bflutter/widget/image_view.dart';
@@ -23,17 +25,28 @@ class Navigation {
         context, MaterialPageRoute(builder: (context) => DetailItemPage()));
   }
 
-  void toImagePreviewCell(context, int index,List<Map<String, dynamic>> list) {
+  void toImagePreviewCell(context, int index, List<Map<String, dynamic>> list) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ImagePreviewCell(index: index, listImage: list,)));
+            builder: (context) => ImagePreviewCell(
+                  index: index,
+                  listImage: list,
+                )));
   }
 
   void toEditAddressPaage(context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => EditAddressPage()));
+        context, MaterialPageRoute(builder: (context) => EditAddressPage()));
+  }
+
+  void toContactPage(context,String typePage) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ContactPage(typePage: typePage,)));
+  }
+
+  void toRefundItemPage(context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RefundItemPage()));
   }
 }
